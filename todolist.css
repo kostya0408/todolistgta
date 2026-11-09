@@ -32,7 +32,12 @@ li {
     padding: 5px;
     color: #F5F0FF;
     flex-wrap: wrap;
+    transition: 0.3s;
 
+}
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #7045A088;
 }
 span {
     font-size: 32px;
@@ -53,7 +58,10 @@ body {
 
     object-fit: cover;
     z-index: -1;
+    transition: transform 0.1s linear;
+
 }
+
 @keyframes colors {
     0%   { background-position: 0% 50%; }
     25%  { background-position: 50% 100%; }

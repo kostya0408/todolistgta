@@ -17,6 +17,7 @@ const highEdit = document.getElementById("highE");
 const saveButton = document.getElementById('saveButton')
 const buttons = document.querySelectorAll("button");
 const popupE = document.getElementById("popupE");
+const video = document.getElementById("bg-video");
 
 let editIndex = null;
 
@@ -26,10 +27,16 @@ mouseclick.src = "mouseClick.mp3";
 
 
 
+document.addEventListener("mousemove", (e) => {
+    const x = (e.clientX - window.innerWidth / 2) * 0.01;
+    const y = (e.clientY - window.innerHeight / 2) * 0.01;
+
+    video.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+});
+
 buttons.forEach(button => {
     button.onmousedown = () => mouseclick.play();
 });
-
 function getTodos() {
     return JSON.parse(
         localStorage.getItem("demo_todos_uk") || "[]"
@@ -166,6 +173,7 @@ button.addEventListener("click", () => {
     }
 });
 
+
 const popup = document.getElementById("popup");
 
 document.getElementById("openPopup").addEventListener("click", () => {
@@ -185,6 +193,9 @@ popup.addEventListener("click", (event) => {
     if (event.target === popup) {
         popup.classList.remove("is-open");
     }
+});
+document.getElementById("closePopupE").addEventListener("click", () => {
+    popupE.classList.remove("is-open");
 });
 saveButton.addEventListener("click", () => {
 
@@ -213,6 +224,7 @@ saveButton.addEventListener("click", () => {
 
     editIndex = null;
 });
+
 
 
 
