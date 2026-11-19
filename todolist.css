@@ -1,249 +1,120 @@
-.head {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 15px;
-    margin: 20px;
-    flex-wrap: wrap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik+Mono+One&display=swap');
+
 html, body {
     min-height: 100vh;
     margin: 0;
 }
 
-
-.main {
-    background: #171020;
-
-    align-items: center;
-
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-
-    border-radius: 10px;
-}
-li {
-    background:#1b1028;
-    border-radius: 10px;
-    display: flex;
-    font-size: 16px;
-    border: 1px solid #7045A0;
-    padding: 5px;
-    color: #F5F0FF;
-    flex-wrap: wrap;
-    transition: 0.3s;
-
-}
-li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px #7045A088;
-}
-span {
-    font-size: 32px;
-}
-
 body {
     text-align: center;
-
-
-}
-#bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    z-index: -1;
-    transition: transform 0.1s linear;
-
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    background-image: url("background1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-@keyframes colors {
-    0%   { background-position: 0% 50%; }
-    25%  { background-position: 50% 100%; }
-    50%  { background-position: 100% 50%; }
-    75%  { background-position: 50% 0%; }
-    100% { background-position: 0% 50%; }
+/* Шапка з заголовком */
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 20px 15px;
+    flex-wrap: wrap;
 }
 
 h1 {
-    color: #f5e6d3;
-    font-size: 48px;
-    font-weight: bold;
-    text-shadow:
-            0 0 5px rgba(255, 140, 0, 0.6),
-            0 0 10px rgba(255, 140, 0, 0.5),
-            0 0 20px rgba(255, 140, 0, 0.4);
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #ff9a76 0%, #ff2a6d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px #261238) drop-shadow(0 0 12px rgba(255, 42, 109, 0.7));
     margin: 0;
 }
 
-input {
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    box-sizing: border-box;
-    font-size: 20px;
-    border: 1px solid #7045A0;
-    border-radius: 10px;
-    background: #100C18;
-    color: #F5F0FF;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-    transform: scale(1F2);
-}
+/* Головна панель з градієнтною рамкою GTA 6 */
 header {
-    background: #1b1028;
-    border-radius: 10px;
+    position: relative;
+    z-index: 50; /* Щоб шапка була вище списку завдань */
     text-align: center;
-
-
     width: 90%;
     max-width: 900px;
     margin: 20px auto;
-
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background:
+            linear-gradient(rgba(38, 18, 56, 0.92), rgba(38, 18, 56, 0.92)) padding-box,
+            linear-gradient(90deg, #05d9e8 0%, #ff2a6d 100%) border-box;
+    box-shadow:
+            -4px 0 15px rgba(5, 217, 232, 0.35),
+            4px 0 15px rgba(255, 42, 109, 0.35);
 }
 
+/* Поля вводу */
+input[type="text"],
+input[type="date"] {
+    width: 90%;
+    margin: 10px 0;
+    box-sizing: border-box;
+    background: rgba(20, 9, 32, 0.9);
+    border: 1.5px solid #05d9e8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: #ff2a6d;
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.6);
+}
+
+/* Зміна кольору іконки календаря в input type="date" на світлий */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Базові градієнтні кнопки */
 button {
-    background-color: #d2691e;
-    border: 1px solid #d2691e;
-    color: white;
-    padding: 12px 20px;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 2px;
-    border-radius: 10px;
-
+    margin: 4px 4px;
     cursor: pointer;
-    transition: 0.2s ease;
+    background: linear-gradient(135deg, #ffb000 0%, #ff2a6d 100%);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 12px 20px;
+    box-shadow: 0 4px 12px rgba(255, 42, 109, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-    background-color: #FF7518;
-    color: #171020;
-    box-shadow: 0 0 12px #FF751855;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 176, 0, 0.6);
 }
 
-.popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    justify-content: center;
-    align-items: center;
-}
-
-.popup.is-open {
-    display: flex;
-}
-
-.popup-content {
-    position: relative;
-    width: min(420px, 90%);
-    padding: 24px;
-    border-radius: 12px;
-    background:#171020;
-}
-
-.close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    border: 0;
-    background: transparent;
-    font-size: 28px;
-    cursor: pointer;
-}
-input[type="radio"] {
-    /*display: none;*/
-}
-
-select {
-    background-color: #3B82F6;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 2px;
-    border-radius: 8px;
-}
-option {
-    text-align: left;
-    font-weight: bold;
-}
-ol {
-    list-style: none;
-    padding-left: 0;
-}
-.taskName {
-    font-size: 24px;
-    margin: 0;
-}
-.deadline {
-    font-size: 18px;
-    margin-left: auto;
-    margin-right: 20px;
-    color:#BCA5E8
-
-}
-.buttonDelete {
-    margin-left: 0;
-    background-color: #8B1E2D;
-    border: 1px solid #8B1E2D;
-}
-
-.spanLow {
-   background: #16803C;
-    padding: 4px;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 12px;
-    color: white;
-    width: fit-content;
-}
-.spanMedium {
-    background: #E5C900;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 12px;
-    color: white;
-    width: fit-content;
-}
-.spanHigh {
-    background: #8B1E2D;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 12px;
-    color: white;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-}
-li{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    margin-bottom: 10px;
-}
-.taskInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-}
+/* Випадаючі меню сортування */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -252,8 +123,14 @@ li{
 .dropdown-content {
     display: none;
     position: absolute;
-    background: #2B1744;
-    border: 1px solid gray;
+
+    min-width: 110px;
+    background: rgba(38, 18, 56, 0.98);
+    border: 1px solid #05d9e8;
+    border-radius: 8px;
+    padding: 4px;
+    z-index: 9999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 .dropdown:hover .dropdown-content {
@@ -263,68 +140,202 @@ li{
 .dropdown-content button {
     display: block;
     width: 100%;
+    margin: 4px 0;
+    padding: 8px 12px;
+    font-size: 0.85rem;
 }
-.ghost-btn {
-    background: #1b1028;
-    border: 0px solid #4f5165;
-}
-.close{
-    position: absolute;
-    top: 5px;
-    right: 5px;
 
-    width: 30px;
-    height: 30px;
+/* Контейнер списку завдань */
+.main {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
 
-    padding: 0;
-    font-size: 24px;
-    line-height: 1;
+ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
-.addTaskButton {
-    position: absolute;
-    right: 50px;
-    bottom: 15px;
-}
-.radio-button {
+
+/* Картка окремого завдання */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: rgba(38, 18, 56, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 42, 109, 0.4);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
     color: #F5F0FF;
-}
-.radio-buttonE {
-    color: #F5F0FF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
 }
 
+li:hover {
+    transform: translateY(-3px);
+    border-color: #05d9e8;
+    box-shadow: 0 0 15px rgba(5, 217, 232, 0.35);
+}
 
-.popupE {
+.taskInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    flex: 1;
+}
+
+.taskName {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.deadline {
+    margin-left: auto;
+    margin-right: 15px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* Бейджі статусів */
+.spanLow, .spanMedium, .spanHigh {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    display: inline-block;
+}
+
+.spanLow {
+    background: rgba(5, 217, 232, 0.15);
+    color: #05d9e8;
+    border: 1px solid #05d9e8;
+    box-shadow: 0 0 8px rgba(5, 217, 232, 0.3);
+}
+
+.spanMedium {
+    background: rgba(255, 176, 0, 0.15);
+    color: #ffb000;
+    border: 1px solid #ffb000;
+    box-shadow: 0 0 8px rgba(255, 176, 0, 0.3);
+}
+
+.spanHigh {
+    background: rgba(255, 42, 109, 0.15);
+    color: #ff2a6d;
+    border: 1px solid #ff2a6d;
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
+}
+
+/* Кнопка видалення */
+.buttonDelete {
+    margin-left: 0;
+    background: #8f1d2c;
+    border: 1px solid #ff2a6d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 9px 16px;
+    box-shadow: none;
+}
+
+.buttonDelete:hover {
+    background: #ff2a6d;
+    box-shadow: 0 0 12px rgba(255, 42, 109, 0.7);
+}
+
+.popup, .popupE {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
     justify-content: center;
     align-items: center;
+
+
+
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+
+    z-index: 99999;
 }
 
-.popupE.is-open {
+.popup.is-open, .popupE.is-open {
     display: flex;
 }
 
-.popup-contentE {
+.popup-content, .popup-contentE {
     position: relative;
     width: min(420px, 90%);
-    padding: 24px;
+    margin: 0 auto;
+    padding: 35px 24px 65px;
     border-radius: 12px;
-    background:#171020;
+    background: rgba(38, 18, 56, 0.98);
+    border: 2px solid #05d9e8;
+    box-shadow: 0 0 30px rgba(5, 217, 232, 0.5);
+    text-align: left;
+    
 }
 
-.closeE {
+.close, .closeE {
     position: absolute;
     top: 8px;
-    right: 12px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
     border: 0;
     background: transparent;
+    color: #ff2a6d;
     font-size: 28px;
+    line-height: 1;
+    box-shadow: none;
+}
+
+.close:hover, .closeE:hover {
+    background: transparent;
+    color: #ffb000;
+    transform: scale(1.1);
+    box-shadow: none;
+}
+
+.radio-button, .radio-buttonE {
+    color: #F5F0FF;
+    justify-content: center;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.radio-button label, .radio-buttonE label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     cursor: pointer;
 }
-.saveButton {
+
+input[type="radio"] {
+    accent-color: #ff2a6d;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.addTaskButton, .saveButton {
     position: absolute;
-    right: 50px;
-    bottom: 15px;
+    right: 24px;
+    bottom: 16px;
+    padding: 10px 24px;
 }
